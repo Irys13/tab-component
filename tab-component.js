@@ -1,32 +1,32 @@
 let tabData = [
     {
-		tabName: "First Tab",
+		tabButton: "First Tab",
 		tabTitle: "First Tab Title" ,
-		tabContent: "First Tab VContent",
+		tabText: "First Tab VContent",
 		id: 0,
 	},
 	{
-		tabName: "Second Tab",
+		tabButton: "Second Tab",
 		tabTitle: "Second Tab Title" ,
-		tabContent: "Second Tab VContent",
+		tabText: "Second Tab VContent",
 		id: 1
 	},
 	{
-		tabName: "Third Tab",
+		tabButton: "Third Tab",
 		tabTitle: "Third Tab Title" ,
-		tabContent: "Third Tab VContent",
+		tabText: "Third Tab VContent",
 		id: 2
 	},
 	{
-		tabName: "Fifth Tab",
+		tabButton: "Fifth Tab",
 		tabTitle: "Fifth Tab Title" ,
-		tabContent: "Fifth Tab VContent",
+		tabText: "Fifth Tab VContent",
 		id: 3
 	},
 	{
-		tabName: "Sixth Tab",
+		tabButton: "Sixth Tab",
 		tabTitle: "Sixth Tab Title" ,
-		tabContent: "Sixth Tab VContent",
+		tabText: "Sixth Tab VContent",
 		id: 4
 	},
 ]
@@ -49,7 +49,7 @@ let tabButtonTemplate = function(i) {
 	button.href = "javascript:SwitchTab('tab_" + i + "', 'content_" + i + "');";
 	button.className = "tab-button";
 	button.id = "tab_" + i;
-	let buttonText = document.createTextNode(tabData[i].tabName);
+	let buttonText = document.createTextNode(tabData[i].tabButton);
 	button.appendChild(buttonText);
 
 	let buttonList = document.createElement("li");
@@ -71,7 +71,7 @@ function tabContentTemplate(i) {
 	tabText.className = "tab-text";
 
 	tabTitle.appendChild(document.createTextNode(tabData[i].tabTitle));
-	tabText.appendChild(document.createTextNode(tabData[i].tabContent));
+	tabText.appendChild(document.createTextNode(tabData[i].tabText));
 	
 	tabContent.appendChild(tabTitle);
 	tabContent.appendChild(tabText);
