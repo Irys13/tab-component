@@ -49,8 +49,7 @@ let tabButtonTemplate = function(i) {
 	button.href = "javascript:SwitchTab('tab_" + i + "', 'content_" + i + "');";
 	button.className = "tab-button";
 	button.id = "tab_" + i;
-	let buttonText = document.createTextNode(tabData[i].tabButton);
-	button.appendChild(buttonText);
+	button.appendChild(document.createTextNode(tabData[i].tabButton));
 
 	let buttonList = document.createElement("li");
 	buttonList.className = "tab-button";
@@ -113,3 +112,35 @@ function SwitchTab(tab, content) {
 	}
 	document.getElementById(tab).className = 'tab-button active';
 }
+
+// Add new tab
+form.addEventListener('submit', addNewTab);
+
+function newTab() {
+	
+	let tabPosition = tabData.length;
+
+	let newTabButtonValue = document.getElementById('newTabButton').value;
+	let newTabTitleValue = document.getElementById('newTabTitle').value;
+	let newTabTextValue = document.getElementById('newTabText').value;
+
+	var addNewTab = {"tabButton":newTabButtonValue, "tabTitle":newTabTitleValue, "tabText":newTabTextValue}
+	tabData.push(addNewTab);
+
+	tabList.appendChild(tabButtonTemplate(tabPosition));
+	tabContent.appendChild(tabContentTemplate(tabPosition));
+
+	tabComponent.appendChild(tabList);
+	tabComponent.appendChild(tabContent);
+
+	return tabComponent;
+
+}
+
+function addNewTab(e) {
+	e.preventDefault();
+
+	document.getElementById("tabs").appendChild(newTab());
+}
+
+console.log(tabData);
