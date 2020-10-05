@@ -2,6 +2,19 @@
     display: none;
 }
 
-.tab-content:first-child {
+.tab-content:first-child, label {
     display: block;
+}
+
+.tab-button-list {
+    margin: 0;
+    padding: 0;
+}
+
+.tab-button {
+    color: #000;
+    display: inline-block;
+    list-style-type: none;
+    text-decoration: none;
+
 }
