@@ -46,13 +46,13 @@ tabContent.className = "tab-content-list";
 
 let tabButtonTemplate = function(i) {
 	let button = document.createElement("a");
-	button.href = "javascript:SwitchTab('tab_" + i + "', 'content_" + i + "');";
-	button.className = "tab-button";
+	button.href = "javascript:switchTab('tab_" + i + "', 'content_" + i + "');";
+	button.className = "tab-button tab-button-item";
 	button.id = "tab_" + i;
 	button.appendChild(document.createTextNode(tabData[i].tabButton));
 
 	let buttonList = document.createElement("li");
-	buttonList.className = "tab-button";
+	buttonList.className = "tab-button-item";
 
 	buttonList.appendChild(button);
     return buttonList;
@@ -93,23 +93,20 @@ function createTabs() {
 
 document.getElementById("tabs").appendChild(createTabs());
 
+window.onload = function firstActiveTab() {
+	document.querySelector(".tab-button:first-child").className = "tab-button active";
+	document.querySelector(".tab-content:first-child").className = "tab-content active";
+}
 
 //Tab Switching
-function SwitchTab(tab, content) {
-	// first of all we get all tab content blocks (I think the best way to get them by class names)
-	var x = document.getElementsByClassName("tab-content");
-	var i;
-	for (i = 0; i < x.length; i++) {
-		x[i].style.display = 'none'; // hide all tab content
+function switchTab(tab, content) {
+	let x = document.getElementsByClassName("active");
+
+	for (let i = 0; i < x.length; i) {
+		x[i].classList.remove("active");
 	}
-	document.getElementById(content).style.display = 'block'; // display the content of the tab we need
 	
-	// now we get all tab menu items by class names (use the next code only if you need to highlight current tab)
-	var x = document.getElementsByClassName("tab-button");
-	var i;
-	for (i = 0; i < x.length; i++) {
-		x[i].className = 'tab-button'; 
-	}
+	document.getElementById(content).className = 'tab-content active';
 	document.getElementById(tab).className = 'tab-button active';
 }
 

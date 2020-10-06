@@ -2,10 +2,6 @@
     display: none;
 }
 
-.tab-content:first-child, label {
-    display: block;
-}
-
 .tab-button-list {
     margin: 0;
     padding: 0;
@@ -14,7 +10,15 @@
 .tab-button {
     color: #000;
     display: inline-block;
+    text-decoration: none;
+}
+
+.tab-button-item {
+    display: inline-block;
     list-style-type: none;
     text-decoration: none;
+}
 
+.tab-content-list .active {
+    display: block;
 }
