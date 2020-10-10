@@ -31,113 +31,102 @@ let tabData = [
 	},
 ]
 
-let tabComponent;
-let tabList;
-let tabContent;
-
-tabComponent = document.createElement("div");
-tabComponent.className = "tab-component";
-
-tabList = document.createElement("ul");
-tabList.className = "tab-button-list";
-
-tabContent = document.createElement("div");
-tabContent.className = "tab-content-list";
-
-let tabButtonTemplate = function(i) {
-	let button = document.createElement("a");
-	button.href = "javascript:switchTab('tab_" + i + "', 'content_" + i + "');";
-	button.className = "tab-button tab-button-item";
-	button.id = "tab_" + i;
-	button.appendChild(document.createTextNode(tabData[i].tabButton));
-
-	let buttonList = document.createElement("li");
-	buttonList.className = "tab-button-item";
-
-	buttonList.appendChild(button);
-    return buttonList;
-}
-
-function tabContentTemplate(i) {
-	let tabContent =  document.createElement("div");
-	tabContent.className = "tab-content";
-	tabContent.id = "content_" + i;
-
-	let tabTitle = document.createElement("h2");
-	tabTitle.className = "tab-title";
-
-	let tabText = document.createElement("p");
-	tabText.className = "tab-text";
-
-	tabTitle.appendChild(document.createTextNode(tabData[i].tabTitle));
-	tabText.appendChild(document.createTextNode(tabData[i].tabText));
+function UnicornTabs(firstActiveTab) {
 	
-	tabContent.appendChild(tabTitle);
-	tabContent.appendChild(tabText);
-
-	return tabContent;
-}
-
-function createTabs() {
-
-	for (let i = 0; i < tabData.length; i++) {
-		tabList.appendChild(tabButtonTemplate(i));
-		tabContent.appendChild(tabContentTemplate(i));
-	}
-
-	tabComponent.appendChild(tabList);
-	tabComponent.appendChild(tabContent);
-
-	return tabComponent;
-}
-
-document.getElementById("tabs").appendChild(createTabs());
-
-window.onload = function firstActiveTab() {
-	document.querySelector(".tab-button:first-child").className = "tab-button active";
-	document.querySelector(".tab-content:first-child").className = "tab-content active";
-}
-
-//Tab Switching
-function switchTab(tab, content) {
-	let x = document.getElementsByClassName("active");
-
-	for (let i = 0; i < x.length; i) {
-		x[i].classList.remove("active");
+	tabComponent = document.createElement("div");
+	tabComponent.className = "tab-component";
+	
+	tabList = document.createElement("ul");
+	tabList.className = "tab-button-list";
+	
+	tabContent = document.createElement("div");
+	tabContent.className = "tab-content-list";
+	
+	function tabButtonTemplate(i) {
+		let button = document.createElement("a");
+		button.href = "javascript:unicornTabs.switchTab('tab_" + i + "', 'content_" + i + "');";
+		button.className = "tab-button tab-button-item";
+		button.id = "tab_" + i;
+		button.appendChild(document.createTextNode(tabData[i].tabButton));
+		
+		let buttonListItem = document.createElement("li");
+		buttonListItem.className = "tab-button-item";
+		
+		buttonListItem.appendChild(button);
+		return buttonListItem;
 	}
 	
-	document.getElementById(content).className = 'tab-content active';
-	document.getElementById(tab).className = 'tab-button active';
-}
-
-// Add new tab
-form.addEventListener('submit', addNewTab);
-
-function newTab() {
+	function tabContentTemplate(i) {
+		let tabContent =  document.createElement("div");
+		tabContent.className = "tab-content";
+		tabContent.id = "content_" + i;
+		
+		let tabTitle = document.createElement("h2");
+		tabTitle.className = "tab-title";
+		
+		let tabText = document.createElement("p");
+		tabText.className = "tab-text";
+		
+		tabTitle.appendChild(document.createTextNode(tabData[i].tabTitle));
+		tabText.appendChild(document.createTextNode(tabData[i].tabText));
+		
+		tabContent.appendChild(tabTitle);
+		tabContent.appendChild(tabText);
+		
+		return tabContent;
+	}
 	
-	let tabPosition = tabData.length;
+	function createTabs() {	
+		for (let i = 0; i < tabData.length; i++) {
+			tabList.appendChild(tabButtonTemplate(i));
+			tabContent.appendChild(tabContentTemplate(i));
+		}
+		
+		tabComponent.appendChild(tabList);
+		tabComponent.appendChild(tabContent);
+		
+		return tabComponent;
+	}
+	
+	document.getElementById("tabs").appendChild(createTabs());
+	
+	function firstActiveTab() {
+		document.querySelector(".tab-button:first-child").className = "tab-button active";
+		document.querySelector(".tab-content:first-child").className = "tab-content active";
+	}
+	
+	firstActiveTab();
 
-	let newTabButtonValue = document.getElementById('newTabButton').value;
-	let newTabTitleValue = document.getElementById('newTabTitle').value;
-	let newTabTextValue = document.getElementById('newTabText').value;
-
-	var addNewTab = {"tabButton":newTabButtonValue, "tabTitle":newTabTitleValue, "tabText":newTabTextValue}
-	tabData.push(addNewTab);
-
-	tabList.appendChild(tabButtonTemplate(tabPosition));
-	tabContent.appendChild(tabContentTemplate(tabPosition));
-
-	tabComponent.appendChild(tabList);
-	tabComponent.appendChild(tabContent);
-
-	return tabComponent;
-
+	//Tab Switching
+	this.switchTab = function switchTab(tab, content) {
+		let x = document.getElementsByClassName("active");
+		
+		for (let i = 0; i < x.length; i) {
+			x[i].classList.remove("active");
+		}
+		
+		document.getElementById(content).className = 'tab-content active';
+		document.getElementById(tab).className = 'tab-button active';
+	}
+	
+	// Add new tab
+	function createNewTab() {
+		let tabPosition = tabData.length - 1;
+		tabList.appendChild(tabButtonTemplate(tabPosition));
+		tabContent.appendChild(tabContentTemplate(tabPosition));
+		
+		tabComponent.appendChild(tabList);
+		tabComponent.appendChild(tabContent);
+		
+		return tabComponent;
+	}
+	
+	this.newTab = function newTab() {
+		document.getElementById("tabs").appendChild(createNewTab());
+	}
+		
+	console.log(tabData);
+	firstActiveTab();
 }
 
-function addNewTab(e) {
-	e.preventDefault();
 
-	document.getElementById("tabs").appendChild(newTab());
-}
-
-console.log(tabData);

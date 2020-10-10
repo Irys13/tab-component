@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌸 Tab Component 🌸</title>
+    <title>🦄 Tab Component 🦄</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="pretty-styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
@@ -11,11 +11,10 @@
 <body>
     <div id="tabs"></div>
 
-
     <form id="form" method="post">
         <label>
             Tab Button Name<br>
-            <input name="tabButton" type="text" id="newTabButton">
+            <input name="tabButton" type="text" id="newTabButton" required>
         </label>
         <label>
             Tab Title<br>
@@ -23,10 +22,31 @@
         </label>
         <label>
             Tab Content<br>
-            <textarea name="tabText" id="newTabText" rows="4" cols="16"></textarea>
+            <textarea name="tabText" id="newTabText" rows="4" cols="16" required></textarea>
         </label>
         <button type="submit">Submit</button>
     </form>
+
 <script src="tab-component.js"></script>
+
+<script>
+let unicornTabs = new UnicornTabs();
+
+    function newTabFormData(e) {
+        e.preventDefault();
+
+        let newTabButtonValue = document.getElementById('newTabButton').value;
+        let newTabTitleValue = document.getElementById('newTabTitle').value;
+        let newTabTextValue = document.getElementById('newTabText').value;
+		
+        var addNewTab = {"tabButton":newTabButtonValue, "tabTitle":newTabTitleValue, "tabText":newTabTextValue}
+        tabData.push(addNewTab);
+
+        unicornTabs.newTab();
+    }
+
+    form.addEventListener('submit', newTabFormData);
+
+</script>
 </body>
 </html>
