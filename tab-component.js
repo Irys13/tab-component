@@ -1,34 +1,24 @@
 let tabData = [
     {
-		tabButton: "First Tab",
-		tabTitle: "First Tab Title" ,
-		tabText: "First Tab VContent",
-		id: 0,
+		tabButton: "Grumpy Cat",
+		tabTitle: "Tardar Sauce" ,
+		tabText: "Grumpy Cat, was an American Internet celebrity cat. She was known for her permanently 'grumpy' facial appearance, which was caused by an underbite and feline dwarfism. She came to prominence when a photograph of her was posted on September 22, 2012, on social news website Reddit by Bryan Bundesen, the brother of her owner Tabatha Bundesen. Lolcats and parodies created from the photograph by Reddit users became popular. She was the subject of a popular Internet meme in which humorously negative, cynical images are made from photographs of her."
 	},
 	{
-		tabButton: "Second Tab",
-		tabTitle: "Second Tab Title" ,
-		tabText: "Second Tab VContent",
-		id: 1
+		tabButton: "Maru",
+		tabTitle: "Maru" ,
+		tabText: "Maru is a male Scottish Straight cat in Japan who has become popular on YouTube. As of September 2016, videos featuring Maru have been viewed over 325 million times, a Guinness World Record for the most YouTube video views of an individual animal. Maru has been described as the 'most famous cat on the internet'"
 	},
 	{
-		tabButton: "Third Tab",
-		tabTitle: "Third Tab Title" ,
-		tabText: "Third Tab VContent",
-		id: 2
+		tabButton: "Sockington",
+		tabTitle: "Sockington" ,
+		tabText: "Sockington (also known as 'Sockamillion' or 'Socks') is a domestic cat who lives in Waltham, Massachusetts, United States. He has gained large-scale fame via the social networking site Twitter; his co-owner, Jason Scott, an archivist and Internet historian, has been regularly posting from Sockington's Twitter account since late 2007. As of July 2018, Sockington's account has over 1.2 million followers, many of which are pet accounts themselves. Sockington is a grey and white domestic shorthaired cat; he was found as a stray outside a Boston subway station in 2004. In July 2014, Parade magazine called Sockington a 'Pet Power Player' and named him #1 in their list of pet social media sensations."
 	},
 	{
-		tabButton: "Fifth Tab",
-		tabTitle: "Fifth Tab Title" ,
-		tabText: "Fifth Tab VContent",
-		id: 3
-	},
-	{
-		tabButton: "Sixth Tab",
-		tabTitle: "Sixth Tab Title" ,
-		tabText: "Sixth Tab VContent",
-		id: 4
-	},
+		tabButton: "Keyboard Cat",
+		tabTitle: "Fatso " ,
+		tabText: "Keyboard Cat is a video-based internet meme. Its original form was a video originally made in 1984 by Charlie Schmidt of his cat Fatso seemingly playing a piano (though manipulated by Schmidt off-camera) to a cheery tune. While Schmidt had uploaded the video himself to YouTube in 2007, Brad O'Farrell, with Schmidt's permission, appended the video to the end of a blooper video uploaded in 2009 as if to have the cat 'play' the person offstage after the gaffe as they had done in Vaudeville. The idea of this quickly expanded on the Internet by numerous other users, typically under the name 'Play Him Off, Keyboard Cat', and became a meme. Though Fatso had died in 1987, Schmidt had since adopted two other cats to become the new 'Keyboard Cat' and providing video footage to be used for the meme: Bento until his death in 2018, and the current Keyboard Cat, Skinny."
+	}
 ]
 
 function UnicornTabs(firstActiveTab) {
