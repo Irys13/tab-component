@@ -46,7 +46,9 @@ let unicornTabs = new UnicornTabs();
         var addNewTab = {"tabButton":newTabButtonValue, "tabTitle":newTabTitleValue, "tabText":newTabTextValue}
         tabData.push(addNewTab);
 
+
         unicornTabs.newTab();
+        alert("New tab have been added");
     }
 
     form.addEventListener('submit', newTabFormData);

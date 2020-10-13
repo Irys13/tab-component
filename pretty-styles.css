@@ -96,10 +96,6 @@ h2 {
         width: 800px;
     }
 
-    button {
-        width: 824px;
-    }
-
     .unicorn {
         top: 15px;
         right: -40px;
@@ -155,7 +151,7 @@ input, textarea {
 }
 
 button {
-    background-color: rebeccapurple;
+    background-color: #663399;
     border: 0;
     color: white;
     font-size: 14px;
@@ -168,4 +164,5 @@ button {
 
 button:hover {
     cursor:pointer;
+     background-color: #47246b;
 }
