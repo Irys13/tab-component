@@ -1,4 +1,4 @@
-A tab component which creates all of HTML, takes all data from JSON object and where a user can create new tabs. It can display large amount of tabs, when there is not enough space, a user can scroll through tabs.
+A tab component which creates all of HTML, takes all data from JSON object and where a user can create new tabs. It can display large amount of tabs, when there is not enough space, a user can scroll through tabs. It's made in JavaScript only so it doesn't have any dependencies.
 
 # How it looks like:
 
